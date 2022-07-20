@@ -1,10 +1,12 @@
 import React from "react";
-import { createRoot } from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import DraggableBox from "./components/DraggableBox";
 
 const App = () => {
     return (
         <main>
             Hello World!
+            <DraggableBox />
         </main>
     )
 }

@@ -1,0 +1,8 @@
+.draggable-box {
+    width: 3rem;
+    height: 1rem;
+    border: 1px red solid;
+    position: absolute;
+    top: 150px;
+    left: 50px;
+}
