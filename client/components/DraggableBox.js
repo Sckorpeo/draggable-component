@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { Children, useState } from 'react';
 
-const DraggableBox = () => {
+const DraggableBox = ({ children }) => {
     const [deltaX, setDeltaX] = useState(0),
         [deltaY, setDeltaY] = useState(0),
         [dragging, setDragging] = useState(false),
@@ -10,9 +10,11 @@ const DraggableBox = () => {
         setDeltaX(ev.screenX - ev.currentTarget.getBoundingClientRect().left);
         setDeltaY(ev.screenY - ev.currentTarget.getBoundingClientRect().top);
         setDragging(true);
+        ev.target.classList.toggle('dragging');
     }
-    const handleMouseUp = () => {
+    const handleMouseUp = (ev) => {
         setDragging(false);
+        ev.target.classList.toggle('dragging');
     }
     const handleDrag = (ev) => {
         if (dragging) {
@@ -29,6 +31,7 @@ const DraggableBox = () => {
             style={pos}
             className='draggable-box'
         >
+            {children}
         </div >
     )
 }
